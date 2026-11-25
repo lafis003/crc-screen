@@ -7,7 +7,6 @@ import { content, Content, Language, Page } from './data/content';
 import { DoctorIcon, TestTubeIcon, MailboxDnaIcon, ColonIcon } from './components/Icons';
 import { PATIENT_PHONE, PATIENT_PHONE_URI } from './config';
 import { track } from './analytics';
-import { Stats } from './components/Stats';
 
 const asset = (path: string) => `${import.meta.env.BASE_URL}${path}`;
 
@@ -18,21 +17,12 @@ export default function App() {
   const [isMember, setIsMember] = useState<boolean | null>(null);
   const [page, setPage] = useState<Page>('language');
   const [direction, setDirection] = useState(1);
-  const [hash, setHash] = useState(window.location.hash);
 
   useEffect(() => {
-    const onHash = () => setHash(window.location.hash);
-    window.addEventListener('hashchange', onHash);
-    return () => window.removeEventListener('hashchange', onHash);
+    if (window.location.hash === '#/crc-screen-stats') {
+      window.location.replace('https://crc-screen-kpsom.goatcounter.com');
+    }
   }, []);
-
-  const isStats = hash === '#/crc-screen-stats';
-
-  useEffect(() => {
-    if (isStats || sessionStorage.getItem('visit-tracked')) return;
-    sessionStorage.setItem('visit-tracked', '1');
-    track('visit');
-  }, [isStats]);
 
   const go = (next: Page, dir: number) => {
     setDirection(dir);
@@ -44,8 +34,6 @@ export default function App() {
     setIsMember(null);
     go('language', -1);
   };
-
-  if (isStats) return <Stats />;
 
   return (
     <div className="min-h-svh w-full bg-slate-200 flex justify-center overflow-hidden fixed inset-0">

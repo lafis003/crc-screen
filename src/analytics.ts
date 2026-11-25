@@ -1,7 +1,4 @@
-export const STATS_URL: string = (import.meta.env.VITE_STATS_URL ?? '').replace(/\/$/, '');
-
 export type StatEvent =
-  | 'visit'
   | 'lang_en'
   | 'lang_es'
   | 'member_yes'
@@ -11,15 +8,15 @@ export type StatEvent =
   | 'view_colonoscopy'
   | 'click_phone';
 
+declare global {
+  interface Window {
+    goatcounter?: { count: (vars: { path: string; title?: string; event?: boolean }) => void };
+  }
+}
+
 export function track(event: StatEvent) {
-  if (!STATS_URL) return;
   try {
-    fetch(`${STATS_URL}/event`, {
-      method: 'POST',
-      headers: { 'Content-Type': 'text/plain' },
-      body: event,
-      keepalive: true,
-    }).catch(() => {});
+    window.goatcounter?.count({ path: event, title: event, event: true });
   } catch {
     // analytics must never break the app
   }
