@@ -1,7 +1,7 @@
 const EVENTS = [
-  'visit', 'lang_en', 'lang_es',
-  'view_fit', 'view_cologuard', 'view_colonoscopy',
-  'click_phone', 'download_brochure', 'download_instructions',
+  'visit', 'lang_en', 'lang_es', 'member_yes', 'member_no',
+  'view_screening', 'view_cologuard', 'view_colonoscopy',
+  'click_phone', 'download_flyer',
 ];
 const CORS = {
   'Access-Control-Allow-Origin': '*',

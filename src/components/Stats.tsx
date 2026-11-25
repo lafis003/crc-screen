@@ -7,12 +7,13 @@ const ROWS: { key: StatEvent; label: string }[] = [
   { key: 'visit', label: 'Visits' },
   { key: 'lang_en', label: 'Chose English' },
   { key: 'lang_es', label: 'Chose Español' },
-  { key: 'view_fit', label: 'Viewed FIT' },
-  { key: 'view_cologuard', label: 'Viewed Cologuard' },
-  { key: 'view_colonoscopy', label: 'Viewed Colonoscopy' },
-  { key: 'click_phone', label: 'Tapped phone number' },
-  { key: 'download_brochure', label: 'Brochure opened / downloaded' },
-  { key: 'download_instructions', label: 'Detailed instructions opened' },
+  { key: 'member_yes', label: 'AltaMed members' },
+  { key: 'member_no', label: 'Not members' },
+  { key: 'view_screening', label: 'Opened "how to get screened"' },
+  { key: 'view_cologuard', label: 'Opened Cologuard info' },
+  { key: 'view_colonoscopy', label: 'Opened Colonoscopy info' },
+  { key: 'click_phone', label: 'Tapped a phone number' },
+  { key: 'download_flyer', label: 'Downloaded flyer' },
 ];
 
 export function Stats() {
@@ -44,7 +45,7 @@ export function Stats() {
         {data && (
           <>
             <div className="grid grid-cols-2 gap-4 mb-8">
-              {ROWS.slice(0, 1).concat(ROWS.slice(6, 7)).map((r) => (
+              {ROWS.filter((r) => r.key === 'visit' || r.key === 'click_phone').map((r) => (
                 <div key={r.key} className="bg-white border border-slate-200 rounded-2xl p-5">
                   <div className="text-4xl font-semibold text-brand">{data.totals[r.key]}</div>
                   <div className="text-sm text-warm-muted mt-1">{r.label}</div>

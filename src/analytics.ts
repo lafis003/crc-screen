@@ -4,12 +4,13 @@ export type StatEvent =
   | 'visit'
   | 'lang_en'
   | 'lang_es'
-  | 'view_fit'
+  | 'member_yes'
+  | 'member_no'
+  | 'view_screening'
   | 'view_cologuard'
   | 'view_colonoscopy'
   | 'click_phone'
-  | 'download_brochure'
-  | 'download_instructions';
+  | 'download_flyer';
 
 export function track(event: StatEvent) {
   if (!STATS_URL) return;

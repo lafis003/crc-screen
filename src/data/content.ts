@@ -1,145 +1,252 @@
 export type Language = 'en' | 'es';
-export type Page = 'language' | 'hub' | 'fit' | 'cologuard' | 'colonoscopy';
+export type Page = 'language' | 'member' | 'info' | 'screening';
 
-export const content = {
-  en: {
-    welcome: "Welcome",
-    selectLanguage: "Please select your preferred language to continue.",
-    english: "English",
-    spanish: "Español",
-    hubTitle: "Colorectal Cancer Screening",
-    hubSubtitle: "Early detection saves lives. Read about the options below and choose one to learn more about it.",
-    fitTitle: "FIT Kit",
-    fitDesc: "A simple test done at home once a year.",
-    cologuardTitle: "Cologuard",
-    cologuardDesc: "An at-home test done every 3 years.",
-    colonoscopyTitle: "Colonoscopy",
-    colonoscopyDesc: "A procedure done at a clinic every 10 years.",
-    back: "Back",
-    home: "Start Over",
-    downloadBrochure: "Download Brochure",
-    detailedInstructions: "Detailed Instructions",
-    tapToEnlarge: "Tap brochure to enlarge.",
-    callToSchedule: "To schedule or order, call:",
-    orderHelp: "Need help? Call us at:",
-    afterHoursHelp: "After hours? Please call:",
-    twentyFourSeven: "24/7",
-    officeHours: "M–F: 8AM–5PM",
-    brochurePath: "/brochure-en.jpg",
-    brochureFilename: "CRC-Screening-Brochure-EN.jpg",
-    methods: {
-      fit: {
-        title: "FIT (Fecal Immunochemical Test)",
-        intro: "The FIT test is a simple, non-invasive screening you can do in the comfort and privacy of your own home. It checks for hidden blood in your stool, which can be an early sign of colon cancer.",
-        stepsTitle: "How it works:",
-        steps: [
-          "Call [PHONE] to order your FIT kit.",
-          "Follow the instructions to collect a small stool sample.",
-          "Mail the sample or drop it off at the lab.",
-          "Your doctor will contact you with the results."
-        ],
-        frequency: "Recommended once a year.",
-        downloadPath: "/fit-en.png",
-        downloadFilename: "FIT-Kit-Guide-EN.png"
-      },
-      cologuard: {
-        title: "Cologuard",
-        intro: "Cologuard is an at-home screening test that looks for both hidden blood and altered DNA in your stool. It is delivered directly to your door.",
-        stepsTitle: "How it works:",
-        steps: [
-          "Call [PHONE] to order your Cologuard kit.",
-          "Receive the Cologuard kit in the mail and follow the instructions.",
-          "Pack the sample and use the prepaid label to ship it back via UPS.",
-          "Your doctor will review the results with you."
-        ],
-        frequency: "Recommended every 3 years.",
-        downloadPath: "/cologuard-instructions-en.jpg",
-        downloadFilename: "Cologuard-Instructions-EN.jpg"
-      },
-      colonoscopy: {
-        title: "Colonoscopy",
-        intro: "A colonoscopy is a thorough exam of your entire colon. It is the most accurate test and can actually prevent cancer by finding and removing polyps before they turn into cancer.",
-        stepsTitle: "How it works:",
-        steps: [
-          "Call [PHONE] to schedule your colonoscopy appointment.",
-          "Follow a special diet and take a laxative prep the day before.",
-          "Arrive at the clinic or hospital for your appointment.",
-          "The doctor will examine your colon and remove any polyps."
-        ],
-        frequency: "Recommended every 10 years for average-risk adults.",
-        downloadPath: "/colonoscopy-en.png",
-        downloadFilename: "Colonoscopy-Instructions-EN.png"
-      }
-    }
+const en = {
+  back: "Back",
+  home: "Start Over",
+  member: {
+    title: "Are you an AltaMed member?",
+    subtitle: "This helps us show you the right next steps.",
+    yes: "Yes, I'm an AltaMed member",
+    no: "No, I'm not a member",
   },
-  es: {
-    welcome: "Bienvenido",
-    selectLanguage: "Por favor, seleccione su idioma preferido para continuar.",
-    english: "English",
-    spanish: "Español",
-    hubTitle: "Detección del Cáncer Colorrectal",
-    hubSubtitle: "La detección temprana salva vidas. Lea sobre las opciones a continuación y elija una para obtener más información.",
-    fitTitle: "Prueba FIT",
-    fitDesc: "Una prueba sencilla que se hace en casa una vez al año.",
-    cologuardTitle: "Cologuard",
-    cologuardDesc: "Una prueba en casa que se hace cada 3 años.",
-    colonoscopyTitle: "Colonoscopia",
-    colonoscopyDesc: "Un procedimiento realizado en una clínica cada 10 años.",
-    back: "Atrás",
-    home: "Volver al inicio",
-    downloadBrochure: "Descargar Folleto",
-    detailedInstructions: "Instrucciones Detalladas",
-    tapToEnlarge: "Toque el folleto para ampliar.",
-    callToSchedule: "Para programar o pedir, llame al:",
-    orderHelp: "¿Necesita ayuda? Llámenos al:",
-    afterHoursHelp: "¿Fuera del horario? Por favor llame al:",
-    twentyFourSeven: "24/7",
-    officeHours: "L–V: 8AM–5PM",
-    brochurePath: "/brochure-es.jpg",
-    brochureFilename: "Folleto-Deteccion-CRC-ES.jpg",
-    methods: {
-      fit: {
-        title: "Prueba FIT",
-        intro: "La prueba FIT es un examen sencillo y no invasivo que puede hacer en la comodidad y privacidad de su hogar. Busca sangre oculta en las heces, lo cual puede ser un signo temprano de cáncer de colon.",
-        stepsTitle: "Cómo funciona:",
-        steps: [
-          "Llame al [PHONE] para pedir su kit FIT.",
-          "Siga las instrucciones para recolectar una pequeña muestra de heces.",
-          "Envíe la muestra por correo o entréguela en el laboratorio.",
-          "Su médico se comunicará con usted para darle los resultados."
-        ],
-        frequency: "Recomendado una vez al año.",
-        downloadPath: "/fit-es.jpg",
-        downloadFilename: "Guia-Prueba-FIT-ES.jpg"
-      },
-      cologuard: {
-        title: "Cologuard",
-        intro: "Cologuard es una prueba de detección en el hogar que busca tanto sangre oculta como ADN alterado en sus heces. Se entrega directamente en su puerta.",
-        stepsTitle: "Cómo funciona:",
-        steps: [
-          "Llame al [PHONE] para pedir su kit Cologuard.",
-          "Reciba el kit de Cologuard por correo y siga las instrucciones.",
-          "Empaque la muestra y use la etiqueta prepagada para enviarla de regreso por UPS.",
-          "Su médico revisará los resultados con usted."
-        ],
-        frequency: "Recomendado cada 3 años.",
-        downloadPath: "/cologuard-instructions-es.jpg",
-        downloadFilename: "Instrucciones-Cologuard-ES.jpg"
-      },
-      colonoscopy: {
-        title: "Colonoscopia",
-        intro: "Una colonoscopia es un examen exhaustivo de todo su colon. Es la prueba más precisa y en realidad puede prevenir el cáncer al encontrar y extirpar pólipos antes de que se conviertan en cáncer.",
-        stepsTitle: "Cómo funciona:",
-        steps: [
-          "Llame al [PHONE] para programar su cita de colonoscopia.",
-          "Siga una dieta especial y tome un laxante de preparación el día anterior.",
-          "Llegue a la clínica u hospital para su cita.",
-          "El médico examinará su colon y extirpará cualquier pólipo."
-        ],
-        frequency: "Recomendado cada 10 años para adultos de riesgo promedio.",
-        downloadPath: "/colonoscopy-es.png",
-        downloadFilename: "Instrucciones-Colonoscopia-ES.png"
-      }
-    }
-  }
+  info: {
+    badge: "Colorectal Cancer Screening",
+    title: "Colon cancer: the cancer YOU can prevent.",
+    subtitle: "Early testing saves lives. Here's what you need to know.",
+    stats: [
+      { big: "45–75", text: "Are you this age? It's time to get screened for colorectal cancer." },
+      { big: "1 in 20", text: "people in the U.S. are diagnosed with colorectal cancer in their lifetime." },
+      { big: "9 out of 10", text: "people survive colorectal cancer with early testing." },
+    ],
+    ageChange: {
+      title: "Screening now starts at 45",
+      text: "Recommendations changed from age 50 to age 45, so more people should get screened earlier.",
+    },
+    whatIsTitle: "What is colorectal cancer?",
+    whatIs: "Colorectal cancer starts when cells in your colon or rectum grow in an abnormal way. Over time, they can form a growth called a polyp. Some polyps are harmless, but others can turn into cancer if they aren't removed. Screening can find polyps early, even before you feel sick.",
+    symptomsTitle: "Never ignore new or worrying symptoms",
+    symptomsIntro: "Tell your provider right away if you notice any of these, at any age:",
+    symptoms: [
+      "Blood in your stool or from your rectum",
+      "A change in bowel habits",
+      "A change in the shape or size of your stool",
+      "Rectal or belly pain",
+      "Unexplained weight loss",
+    ],
+    familyTitle: "Family history?",
+    familyText: "A family history of colorectal cancer can change which tests are right for you. Talk with your provider about the best choice.",
+    cta: "Click here to learn how to get screened",
+  },
+  screening: {
+    title: "How to get screened",
+    fit: {
+      title: "FIT kit",
+      what: "A FIT kit is a simple test you do at home. It checks for hidden blood in your stool.",
+      steps: [
+        "No prep needed. You can do it at home, on your own time.",
+        "Follow the instructions in your kit to collect a small stool sample.",
+        "Mail the test to the lab, or return it to AltaMed.",
+        "Your doctor will contact you with the results.",
+      ],
+      frequency: "Every year if your result is normal",
+      consider: "If your result is abnormal, you will need a colonoscopy.",
+    },
+    memberKit: {
+      title: "Interested in getting a FIT kit?",
+      text: "As an AltaMed member, you can get a FIT kit from AltaMed. Call this number to request one:",
+      call: "Call to request a FIT kit",
+    },
+    nonMember: {
+      joinTitle: "Interested in getting a FIT kit?",
+      aboutTitle: "Become an AltaMed member",
+      about: "AltaMed is a nonprofit community health care provider serving Southern California, including Santa Ana. Their motto is “Quality care without exception.” Once you're a member, you can get a FIT kit from AltaMed.",
+      joinText: "To become an AltaMed patient, call:",
+      call: "Call to become a member",
+      otherTitle: "Other ways to get a FIT kit in the Santa Ana area",
+      otherIntro: "These community clinics serve Santa Ana. Call ahead and ask if they offer FIT kits (stool tests) or colorectal cancer screening, since availability can change.",
+      clinics: [
+        {
+          name: "Serve the People Community Health Center",
+          detail: "1206 E. 17th St., Ste. 101, Santa Ana, CA 92701. Sliding-scale fees available.",
+          phone: "714-352-2911",
+        },
+        {
+          name: "Hurtt Family Health Clinic",
+          detail: "1100 N. Tustin Ave., Suite A, Santa Ana, CA 92705. Low-cost care for people without insurance.",
+          url: "https://www.hurttclinic.org/",
+        },
+      ],
+      signupTitle: "Talk to a doctor",
+      signupText: "Sign up to be an AltaMed patient to talk more with a doctor about the screening that's right for you.",
+      signupCall: "Call to sign up",
+    },
+    otherOptionsTitle: "Interested in learning about other options?",
+    tapToOpen: "Tap to learn more",
+    whatLabel: "What is it?",
+    howLabel: "How do I complete it?",
+    considerLabel: "Things to consider",
+    cologuard: {
+      title: "Cologuard",
+      what: "Checks your stool for blood and for DNA that is abnormal.",
+      how: [
+        "At-home test, delivered to your door.",
+        "No prep needed.",
+        "Collect a stool sample.",
+        "Mail the kit to the lab.",
+      ],
+      frequency: "Every 3 years if your result is normal",
+      consider: "You will need a colonoscopy if your result is abnormal.",
+      guide: "See the Cologuard kit guide",
+      guidePath: "cologuard-instructions-en.jpg",
+    },
+    colonoscopy: {
+      title: "Colonoscopy",
+      badge: "Gold standard in screening",
+      what: "Checks for polyps (small growths) in your colon that can become cancer.",
+      how: [
+        "Outpatient procedure.",
+        "Your provider will refer you to a trusted specialist near you.",
+        "Prep needed: you must clear your colon with a laxative before the test.",
+      ],
+      frequency: "Every 10 years if your findings are normal",
+      consider: [
+        "Calls for anesthesia.",
+        "The specialist will remove any small growths and send them for more testing.",
+        "You will need transportation to and from the visit.",
+      ],
+    },
+    flyerTitle: "Take it with you",
+    flyerText: "Download the AltaMed flyer to share or read later.",
+    flyerButton: "Download the flyer",
+    flyerPath: "altamed-flyer-en.pdf",
+    disclaimer: "Talk with your provider about the best choice for you. This guide is for information only and is not medical advice.",
+  },
 };
+
+export type Content = typeof en;
+
+const es: Content = {
+  back: "Atrás",
+  home: "Volver al inicio",
+  member: {
+    title: "¿Es usted miembro de AltaMed?",
+    subtitle: "Esto nos ayuda a mostrarle los pasos correctos.",
+    yes: "Sí, soy miembro de AltaMed",
+    no: "No, no soy miembro",
+  },
+  info: {
+    badge: "Detección del cáncer colorrectal",
+    title: "Cáncer de colon: el cáncer que USTED puede prevenir.",
+    subtitle: "Las pruebas tempranas salvan vidas. Esto es lo que necesita saber.",
+    stats: [
+      { big: "45–75", text: "¿Tiene esta edad? Es hora de hacerse una prueba de detección de cáncer colorrectal." },
+      { big: "1 de cada 20", text: "personas en los EE. UU. son diagnosticadas con cáncer colorrectal a lo largo de su vida." },
+      { big: "9 de cada 10", text: "personas sobreviven al cáncer colorrectal con pruebas tempranas." },
+    ],
+    ageChange: {
+      title: "Ahora la detección empieza a los 45",
+      text: "Las recomendaciones cambiaron de los 50 a los 45 años, para que más personas se hagan la prueba más temprano.",
+    },
+    whatIsTitle: "¿Qué es el cáncer colorrectal?",
+    whatIs: "El cáncer colorrectal comienza cuando las células del colon o del recto crecen de forma anormal. Con el tiempo, pueden formar un crecimiento llamado pólipo. Algunos pólipos son inofensivos, pero otros pueden convertirse en cáncer si no se extirpan. La detección puede encontrar los pólipos temprano, incluso antes de que se sienta enfermo.",
+    symptomsTitle: "Nunca ignore síntomas nuevos o preocupantes",
+    symptomsIntro: "Avise a su proveedor de inmediato si nota alguno de estos, a cualquier edad:",
+    symptoms: [
+      "Sangre en las heces o en el recto",
+      "Cambios en los hábitos intestinales",
+      "Cambios en la forma o el tamaño de las heces",
+      "Dolor rectal o abdominal",
+      "Pérdida de peso sin explicación",
+    ],
+    familyTitle: "¿Antecedentes familiares?",
+    familyText: "Los antecedentes familiares de cáncer colorrectal pueden cambiar qué pruebas son las adecuadas para usted. Hable con su proveedor sobre la mejor opción.",
+    cta: "Haga clic aquí para saber cómo hacerse la prueba",
+  },
+  screening: {
+    title: "Cómo hacerse la prueba",
+    fit: {
+      title: "Kit FIT",
+      what: "Un kit FIT es una prueba sencilla que se hace en casa. Revisa si hay sangre oculta en las heces.",
+      steps: [
+        "No necesita preparación. Puede hacerla en casa, cuando quiera.",
+        "Siga las instrucciones de su kit para recolectar una pequeña muestra de heces.",
+        "Envíe la prueba por correo al laboratorio o devuélvala a AltaMed.",
+        "Su médico se comunicará con usted para darle los resultados.",
+      ],
+      frequency: "Cada año si el resultado es normal",
+      consider: "Si el resultado es anormal, necesitará una colonoscopia.",
+    },
+    memberKit: {
+      title: "¿Le interesa recibir un kit FIT?",
+      text: "Como miembro de AltaMed, puede recibir un kit FIT de AltaMed. Llame a este número para pedirlo:",
+      call: "Llame para pedir un kit FIT",
+    },
+    nonMember: {
+      joinTitle: "¿Le interesa recibir un kit FIT?",
+      aboutTitle: "Hágase miembro de AltaMed",
+      about: "AltaMed es un proveedor de atención médica comunitaria sin fines de lucro que atiende al sur de California, incluida Santa Ana. Su lema es «Alta calidad sin excepción». Cuando sea miembro, podrá recibir un kit FIT de AltaMed.",
+      joinText: "Para ser paciente de AltaMed, llame al:",
+      call: "Llame para hacerse miembro",
+      otherTitle: "Otras formas de obtener un kit FIT en el área de Santa Ana",
+      otherIntro: "Estas clínicas comunitarias atienden en Santa Ana. Llame antes y pregunte si ofrecen kits FIT (pruebas de heces) o detección de cáncer colorrectal, ya que la disponibilidad puede cambiar.",
+      clinics: [
+        {
+          name: "Serve the People Community Health Center",
+          detail: "1206 E. 17th St., Ste. 101, Santa Ana, CA 92701. Tarifas según sus ingresos.",
+          phone: "714-352-2911",
+        },
+        {
+          name: "Hurtt Family Health Clinic",
+          detail: "1100 N. Tustin Ave., Suite A, Santa Ana, CA 92705. Atención de bajo costo para personas sin seguro.",
+          url: "https://www.hurttclinic.org/",
+        },
+      ],
+      signupTitle: "Hable con un médico",
+      signupText: "Inscríbase como paciente de AltaMed para hablar con un médico sobre la prueba adecuada para usted.",
+      signupCall: "Llame para inscribirse",
+    },
+    otherOptionsTitle: "¿Le interesa conocer otras opciones?",
+    tapToOpen: "Toque para saber más",
+    whatLabel: "¿Qué es?",
+    howLabel: "¿Cómo me hago la prueba?",
+    considerLabel: "Lo que debe tener en cuenta",
+    cologuard: {
+      title: "Cologuard",
+      what: "Analiza sus heces para detectar sangre y ADN que sea anormal.",
+      how: [
+        "Prueba en casa, enviada a su hogar.",
+        "No requiere preparación.",
+        "Recolecte una muestra de sus heces.",
+        "Envíe el kit por correo al laboratorio.",
+      ],
+      frequency: "Cada 3 años si el resultado es normal",
+      consider: "Necesitará una colonoscopia si el resultado es anormal.",
+      guide: "Vea la guía del kit de Cologuard",
+      guidePath: "cologuard-instructions-es.jpg",
+    },
+    colonoscopy: {
+      title: "Colonoscopia",
+      badge: "Estándar de oro en detección",
+      what: "Detecta pólipos (pequeños crecimientos) en el colon que pueden convertirse en cáncer.",
+      how: [
+        "Procedimiento ambulatorio.",
+        "Su proveedor le dará una referencia a un especialista confiable cerca de usted.",
+        "Necesita preparación: debe limpiar su colon con un laxante antes del procedimiento.",
+      ],
+      frequency: "Cada 10 años si los resultados son normales",
+      consider: [
+        "Se requiere anestesia.",
+        "El especialista extirpará cualquier crecimiento pequeño y lo enviará para más pruebas.",
+        "Necesitará transporte para ir y volver de la visita.",
+      ],
+    },
+    flyerTitle: "Llévelo con usted",
+    flyerText: "Descargue el folleto de AltaMed para compartirlo o leerlo después.",
+    flyerButton: "Descargar el folleto",
+    flyerPath: "altamed-flyer-es.pdf",
+    disclaimer: "Hable con su proveedor sobre la mejor opción para usted. Esta guía es solo informativa y no es consejo médico.",
+  },
+};
+
+export const content: Record<Language, Content> = { en, es };
