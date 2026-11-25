@@ -477,6 +477,7 @@ function ScreeningPage({
             <FrequencyPill text={s.colonoscopy.frequency} className="bg-scope/10 text-scope" />
             <LabeledList label={s.howLabel} items={s.colonoscopy.how} color="text-scope" />
             <LabeledList label={s.considerLabel} items={s.colonoscopy.consider} color="text-scope" />
+            <p className="bg-scope/10 text-scope font-semibold rounded-xl p-4 text-lg leading-snug">{s.colonoscopy.talkToDoctor}</p>
           </Accordion>
 
           <p className="flex gap-3 text-sm text-warm-muted leading-snug px-1">
