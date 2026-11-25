@@ -1,5 +1,6 @@
 import React from 'react';
 import { PATIENT_PHONE, PATIENT_PHONE_URI } from '../config';
+import { track } from '../analytics';
 import type { content } from '../data/content';
 
 type ContentType = typeof content['en'];
@@ -18,6 +19,7 @@ export function PhoneAvailability({ t }: PhoneAvailabilityProps) {
         <div className="relative">
           <a
             href={PATIENT_PHONE_URI}
+            onClick={() => track('click_phone')}
             className="text-3xl font-semibold tracking-tight text-brand hover:text-brand-dark transition-colors"
           >
             {PATIENT_PHONE}

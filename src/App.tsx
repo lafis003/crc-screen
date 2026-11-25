@@ -5,6 +5,8 @@ import { content, Language, Page } from './data/content';
 import { DoctorIcon, TestTubeIcon, MailboxDnaIcon, ColonIcon } from './components/Icons';
 import { PhoneAvailability } from './components/PhoneAvailability';
 import { PATIENT_PHONE, PATIENT_PHONE_URI } from './config';
+import { track } from './analytics';
+import { Stats } from './components/Stats';
 
 const resolveAsset = (path: string) => {
   const base = import.meta.env.BASE_URL;
@@ -21,9 +23,25 @@ export default function App() {
   const [language, setLanguage] = useState<Language | null>(null);
   const [page, setPage] = useState<Page>('language');
   const [direction, setDirection] = useState(1); // 1 for forward, -1 for back
+  const [hash, setHash] = useState(window.location.hash);
+
+  useEffect(() => {
+    const onHash = () => setHash(window.location.hash);
+    window.addEventListener('hashchange', onHash);
+    return () => window.removeEventListener('hashchange', onHash);
+  }, []);
+
+  const isStats = hash === '#/crc-screen-stats';
+
+  useEffect(() => {
+    if (isStats || sessionStorage.getItem('visit-tracked')) return;
+    sessionStorage.setItem('visit-tracked', '1');
+    track('visit');
+  }, [isStats]);
 
   const handleLanguageSelect = (lang: Language) => {
     setDirection(1);
+    track(lang === 'en' ? 'lang_en' : 'lang_es');
     setLanguage(lang);
     setPage('hub');
   };
@@ -43,6 +61,8 @@ export default function App() {
     setLanguage(null);
     setPage('language');
   };
+
+  if (isStats) return <Stats />;
 
   return (
     <div className="min-h-svh w-full bg-slate-200 flex justify-center overflow-hidden fixed inset-0">
@@ -151,6 +171,7 @@ function Hub({ language, onSelect, onHome, direction }: { language: Language, on
             <div className="rounded-2xl overflow-hidden shadow-md border border-slate-200 bg-white p-4">
               <a 
                 href={resolveAsset(t.brochurePath)} 
+                onClick={() => track('download_brochure')}
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="block cursor-zoom-in"
@@ -165,7 +186,7 @@ function Hub({ language, onSelect, onHome, direction }: { language: Language, on
               <p className="text-sm text-warm-muted mt-3 mb-6 px-4 text-left">
                 {t.tapToEnlarge} {t.callToSchedule}{' '}
                 <a 
-                  href={PATIENT_PHONE_URI} 
+                  href={PATIENT_PHONE_URI} onClick={() => track('click_phone')} 
                   className="font-semibold text-brand hover:text-brand-dark transition-colors"
                 >
                   {PATIENT_PHONE}
@@ -174,6 +195,7 @@ function Hub({ language, onSelect, onHome, direction }: { language: Language, on
 
               <a 
                 href={resolveAsset(t.brochurePath)}
+                onClick={() => track('download_brochure')}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-full py-4 px-6 bg-brand/10 text-brand rounded-xl text-xl font-semibold hover:bg-brand/20 transition-colors flex items-center justify-center gap-3"
@@ -239,6 +261,10 @@ function MethodPage({ language, method, onBack, onHome, direction }: { language:
     scrollRef.current?.scrollTo(0, 0);
   }, []);
 
+  useEffect(() => {
+    track(`view_${method}`);
+  }, [method]);
+
   const icons = {
     fit: <TestTubeIcon className="w-12 h-12 text-brand" />,
     cologuard: <MailboxDnaIcon className="w-12 h-12 text-brand" />,
@@ -303,7 +329,7 @@ function MethodPage({ language, method, onBack, onHome, direction }: { language:
                         <>
                           {parts[0]}
                           <a 
-                            href={PATIENT_PHONE_URI} 
+                            href={PATIENT_PHONE_URI} onClick={() => track('click_phone')} 
                             className="text-brand font-semibold underline decoration-2 underline-offset-4 hover:text-brand-dark transition-colors"
                           >
                             {PATIENT_PHONE}
@@ -322,6 +348,7 @@ function MethodPage({ language, method, onBack, onHome, direction }: { language:
 
           <a 
             href={resolveAsset(m.downloadPath)}
+            onClick={() => track('download_instructions')}
             target="_blank"
             rel="noopener noreferrer"
             className="w-full py-5 px-8 bg-brand text-white rounded-xl text-2xl font-semibold shadow-sm hover:bg-brand-light active:bg-brand-dark transition-colors flex items-center justify-center gap-4"
