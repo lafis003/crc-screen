@@ -11,7 +11,6 @@ const en = {
     no: "No, I'm not a member",
   },
   info: {
-    badge: "Colorectal Cancer Screening",
     title: "Colon cancer: the cancer YOU can prevent.",
     subtitle: "Early testing saves lives. Here's what you need to know.",
     stats: [
@@ -130,7 +129,6 @@ const es: Content = {
     no: "No, no soy miembro",
   },
   info: {
-    badge: "Detección del cáncer colorrectal",
     title: "Cáncer de colon: el cáncer que USTED puede prevenir.",
     subtitle: "Las pruebas tempranas salvan vidas. Esto es lo que necesita saber.",
     stats: [

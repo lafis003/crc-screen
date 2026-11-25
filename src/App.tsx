@@ -245,10 +245,6 @@ function InfoPage({
       <TopBar t={t} onBack={onBack} onHome={onHome} />
       <ScrollArea>
         <div className="bg-brand text-white px-5 pt-5 pb-6 rounded-b-2xl">
-          <div className="inline-flex items-center gap-2 bg-white/15 rounded-lg px-3 py-1.5 text-sm font-medium mb-3">
-            <ColonIcon className="w-5 h-5 text-white" />
-            {i.badge}
-          </div>
           <h1 className="text-2xl font-semibold tracking-tight leading-tight mb-2">{i.title}</h1>
           <p className="text-base text-white/90 leading-snug">{i.subtitle}</p>
         </div>
