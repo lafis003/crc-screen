@@ -18,7 +18,7 @@ export function PhoneAvailability({ t }: PhoneAvailabilityProps) {
         <div className="relative">
           <a
             href={PATIENT_PHONE_URI}
-            className="text-4xl font-black text-brand hover:text-brand-dark transition-colors"
+            className="text-3xl font-semibold tracking-tight text-brand hover:text-brand-dark transition-colors"
           >
             {PATIENT_PHONE}
           </a>

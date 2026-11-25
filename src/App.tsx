@@ -45,8 +45,8 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-svh w-full bg-warm-bg flex justify-center overflow-hidden fixed inset-0">
-      <div className="w-full max-w-md bg-warm-bg shadow-2xl overflow-hidden flex flex-col relative h-svh">
+    <div className="min-h-svh w-full bg-slate-200 flex justify-center overflow-hidden fixed inset-0">
+      <div className="w-full max-w-md bg-warm-bg shadow-xl border-x border-slate-300 overflow-hidden flex flex-col relative h-svh">
         <AnimatePresence mode="wait" custom={direction}>
           {page === 'language' && (
             <LanguageSelection key="language" onSelect={handleLanguageSelect} />
@@ -87,7 +87,7 @@ function LanguageSelection({ onSelect }: { onSelect: (lang: Language) => void })
       <div className="w-28 h-28 bg-brand/10 rounded-full flex items-center justify-center mb-10">
         <DoctorIcon className="w-14 h-14 text-brand" />
       </div>
-      <h1 className="text-4xl font-bold text-warm-text mb-4">Welcome<br/><span className="text-3xl text-warm-muted font-medium mt-2 block">Bienvenido</span></h1>
+      <h1 className="text-3xl font-semibold tracking-tight text-warm-text mb-4">Welcome<br/><span className="text-3xl text-warm-muted font-medium mt-2 block">Bienvenido</span></h1>
       <p className="text-xl text-warm-muted mb-12 leading-relaxed">
         Please select your preferred language to continue.<br/>
         <span className="text-lg mt-2 block">Por favor, seleccione su idioma preferido para continuar.</span>
@@ -96,7 +96,7 @@ function LanguageSelection({ onSelect }: { onSelect: (lang: Language) => void })
       <div className="w-full space-y-5">
         <button 
           onClick={() => onSelect('en')}
-          className="w-full py-5 px-8 bg-white text-brand border-2 border-brand rounded-full text-2xl font-semibold shadow-sm hover:bg-brand/5 active:bg-brand active:text-white transition-colors flex items-center justify-between group"
+          className="w-full py-5 px-8 bg-white text-brand border border-brand/40 rounded-xl text-xl font-semibold shadow-sm hover:bg-brand/5 active:bg-brand active:text-white transition-colors flex items-center justify-between group"
           aria-label="Select English"
         >
           <span>English</span>
@@ -104,7 +104,7 @@ function LanguageSelection({ onSelect }: { onSelect: (lang: Language) => void })
         </button>
         <button 
           onClick={() => onSelect('es')}
-          className="w-full py-5 px-8 bg-white text-brand border-2 border-brand rounded-full text-2xl font-semibold shadow-sm hover:bg-brand/5 active:bg-brand active:text-white transition-colors flex items-center justify-between group"
+          className="w-full py-5 px-8 bg-white text-brand border border-brand/40 rounded-xl text-xl font-semibold shadow-sm hover:bg-brand/5 active:bg-brand active:text-white transition-colors flex items-center justify-between group"
           aria-label="Seleccionar Español"
         >
           <span>Español</span>
@@ -131,24 +131,24 @@ function Hub({ language, onSelect, onHome, direction }: { language: Language, on
       className="flex-1 flex flex-col bg-warm-bg h-full"
     >
       <div ref={scrollRef} className="flex-1 overflow-y-auto pb-12">
-        <header className="p-8 pb-10 bg-white shadow-sm rounded-b-[2.5rem] z-10 relative mb-4">
+        <header className="p-8 pb-10 bg-white shadow-sm rounded-b-3xl z-10 relative mb-4">
           <button 
             onClick={onHome}
-            className="absolute top-8 right-8 p-3 text-warm-muted hover:text-brand transition-colors bg-warm-bg rounded-full"
+            className="absolute top-8 right-8 p-3 text-warm-muted hover:text-brand transition-colors bg-warm-bg rounded-xl"
             aria-label={t.home}
           >
             <Home className="w-7 h-7" />
           </button>
-          <div className="w-20 h-20 bg-brand/10 rounded-3xl flex items-center justify-center mb-6">
+          <div className="w-20 h-20 bg-brand/10 rounded-xl flex items-center justify-center mb-6">
             <DoctorIcon className="w-10 h-10 text-brand" />
           </div>
-          <h1 className="text-4xl font-bold text-warm-text mb-3 leading-tight">{t.hubTitle}</h1>
+          <h1 className="text-3xl font-semibold tracking-tight text-warm-text mb-3 leading-tight">{t.hubTitle}</h1>
           <p className="text-xl text-warm-muted leading-relaxed">{t.hubSubtitle}</p>
         </header>
 
         <div className="p-6 space-y-5 pt-4">
           <div className="mb-8">
-            <div className="rounded-[2rem] overflow-hidden shadow-md border border-black/5 bg-white p-4">
+            <div className="rounded-2xl overflow-hidden shadow-md border border-slate-200 bg-white p-4">
               <a 
                 href={resolveAsset(t.brochurePath)} 
                 target="_blank" 
@@ -162,11 +162,11 @@ function Hub({ language, onSelect, onHome, direction }: { language: Language, on
                   className="w-full h-auto rounded-2xl hover:opacity-95 transition-opacity"
                 />
               </a>
-              <p className="text-sm text-warm-muted mt-3 mb-6 px-4 italic text-left">
+              <p className="text-sm text-warm-muted mt-3 mb-6 px-4 text-left">
                 {t.tapToEnlarge} {t.callToSchedule}{' '}
                 <a 
                   href={PATIENT_PHONE_URI} 
-                  className="font-bold text-brand hover:text-brand-dark transition-colors not-italic"
+                  className="font-semibold text-brand hover:text-brand-dark transition-colors"
                 >
                   {PATIENT_PHONE}
                 </a>
@@ -176,7 +176,7 @@ function Hub({ language, onSelect, onHome, direction }: { language: Language, on
                 href={resolveAsset(t.brochurePath)}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-full py-4 px-6 bg-brand/10 text-brand rounded-full text-xl font-bold hover:bg-brand/20 transition-colors flex items-center justify-center gap-3"
+                className="w-full py-4 px-6 bg-brand/10 text-brand rounded-xl text-xl font-semibold hover:bg-brand/20 transition-colors flex items-center justify-center gap-3"
               >
                 <Download className="w-6 h-6" />
                 <span>{t.downloadBrochure}</span>
@@ -216,13 +216,13 @@ function HubCard({ title, description, icon, onClick }: { title: string, descrip
   return (
     <button 
       onClick={onClick}
-      className="w-full text-left bg-white p-6 rounded-[2rem] shadow-sm border border-black/5 hover:shadow-md hover:border-brand/30 transition-all flex items-center gap-5 group active:scale-[0.98]"
+      className="w-full text-left bg-white p-6 rounded-2xl shadow-sm border border-slate-200 hover:shadow-md hover:border-brand/30 transition-all flex items-center gap-5 group active:scale-[0.98]"
     >
-      <div className="flex-shrink-0 w-20 h-20 bg-warm-bg rounded-3xl flex items-center justify-center group-hover:bg-brand/5 transition-colors">
+      <div className="flex-shrink-0 w-20 h-20 bg-warm-bg rounded-xl flex items-center justify-center group-hover:bg-brand/5 transition-colors">
         {icon}
       </div>
       <div className="flex-1">
-        <h2 className="text-2xl font-bold text-warm-text mb-2">{title}</h2>
+        <h2 className="text-2xl font-semibold text-warm-text mb-2">{title}</h2>
         <p className="text-lg text-warm-muted leading-snug">{description}</p>
       </div>
       <ChevronRight className="w-8 h-8 text-brand/50 group-hover:text-brand transition-colors flex-shrink-0" />
@@ -255,7 +255,7 @@ function MethodPage({ language, method, onBack, onHome, direction }: { language:
       <header className="p-4 flex items-center justify-between border-b border-black/5 sticky top-0 bg-white/90 backdrop-blur-md z-20">
         <button 
           onClick={onBack}
-          className="flex items-center gap-2 text-brand font-semibold px-4 py-3 rounded-full hover:bg-brand/5 transition-colors active:bg-brand/10"
+          className="flex items-center gap-2 text-brand font-semibold px-4 py-3 rounded-xl hover:bg-brand/5 transition-colors active:bg-brand/10"
           aria-label={t.back}
         >
           <ArrowLeft className="w-7 h-7" />
@@ -263,7 +263,7 @@ function MethodPage({ language, method, onBack, onHome, direction }: { language:
         </button>
         <button 
           onClick={onHome}
-          className="p-3 text-warm-muted hover:text-brand transition-colors rounded-full hover:bg-brand/5 active:bg-brand/10"
+          className="p-3 text-warm-muted hover:text-brand transition-colors rounded-xl hover:bg-brand/5 active:bg-brand/10"
           aria-label={t.home}
         >
           <Home className="w-7 h-7" />
@@ -272,13 +272,13 @@ function MethodPage({ language, method, onBack, onHome, direction }: { language:
 
       <div ref={scrollRef} className="flex-1 overflow-y-auto">
         <div className="p-8 pb-16">
-          <div className="w-24 h-24 bg-brand/10 rounded-[2rem] flex items-center justify-center mb-8">
+          <div className="w-24 h-24 bg-brand/10 rounded-2xl flex items-center justify-center mb-8">
             {icons[method]}
           </div>
 
-          <h1 className="text-4xl font-bold text-warm-text mb-5 leading-tight">{m.title}</h1>
+          <h1 className="text-3xl font-semibold tracking-tight text-warm-text mb-5 leading-tight">{m.title}</h1>
 
-          <div className="inline-block bg-brand/10 text-brand font-bold px-5 py-3 rounded-full text-lg mb-8">
+          <div className="inline-block bg-brand/10 text-brand font-semibold px-5 py-3 rounded-xl text-lg mb-8">
             {m.frequency}
           </div>
 
@@ -286,8 +286,8 @@ function MethodPage({ language, method, onBack, onHome, direction }: { language:
             {m.intro}
           </p>
 
-          <div className="bg-warm-bg rounded-[2.5rem] p-8 mb-10 border border-black/5">
-            <h2 className="text-3xl font-bold text-warm-text mb-8">{m.stepsTitle}</h2>
+          <div className="bg-warm-bg rounded-2xl p-7 mb-10 border border-slate-200">
+            <h2 className="text-3xl font-semibold text-warm-text mb-8">{m.stepsTitle}</h2>
             <ul className="space-y-8">
               {m.steps.map((step, index) => {
                 const hasPhone = step.includes('[PHONE]');
@@ -295,7 +295,7 @@ function MethodPage({ language, method, onBack, onHome, direction }: { language:
 
                 return (
                   <li key={index} className="flex gap-5">
-                    <div className="flex-shrink-0 w-10 h-10 bg-brand text-white rounded-full flex items-center justify-center font-bold text-lg mt-1">
+                    <div className="flex-shrink-0 w-10 h-10 bg-brand text-white rounded-full flex items-center justify-center font-semibold text-lg mt-1">
                       {index + 1}
                     </div>
                     <p className="text-xl text-warm-text leading-relaxed pt-1">
@@ -304,7 +304,7 @@ function MethodPage({ language, method, onBack, onHome, direction }: { language:
                           {parts[0]}
                           <a 
                             href={PATIENT_PHONE_URI} 
-                            className="text-brand font-bold underline decoration-2 underline-offset-4 hover:text-brand-dark transition-colors"
+                            className="text-brand font-semibold underline decoration-2 underline-offset-4 hover:text-brand-dark transition-colors"
                           >
                             {PATIENT_PHONE}
                           </a>
@@ -324,7 +324,7 @@ function MethodPage({ language, method, onBack, onHome, direction }: { language:
             href={resolveAsset(m.downloadPath)}
             target="_blank"
             rel="noopener noreferrer"
-            className="w-full py-6 px-8 bg-brand text-white rounded-full text-2xl font-bold shadow-lg hover:bg-brand-light active:bg-brand-dark transition-colors flex items-center justify-center gap-4"
+            className="w-full py-5 px-8 bg-brand text-white rounded-xl text-2xl font-semibold shadow-sm hover:bg-brand-light active:bg-brand-dark transition-colors flex items-center justify-center gap-4"
           >
             <Download className="w-8 h-8" />
             <span>{t.detailedInstructions}</span>
