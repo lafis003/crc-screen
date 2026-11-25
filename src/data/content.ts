@@ -63,8 +63,8 @@ const en = {
       about: "AltaMed is a nonprofit community health care provider serving Southern California, including Santa Ana. Their motto is “Quality care without exception.” Once you're a member, you can get a FIT kit from AltaMed.",
       joinText: "To become an AltaMed patient, call:",
       call: "Call to become a member",
-      otherTitle: "Other ways to get a FIT kit in the Santa Ana area",
-      otherIntro: "These community clinics serve Santa Ana. Call ahead and ask if they offer FIT kits (stool tests) or colorectal cancer screening, since availability can change.",
+      otherTitle: "Other community health options in your area",
+      otherIntro: "These community clinics serve the Santa Ana area. Call ahead to ask about the services they offer.",
       clinics: [
         {
           name: "Serve the People Community Health Center",
@@ -188,8 +188,8 @@ const es: Content = {
       about: "AltaMed es un proveedor de atención médica comunitaria sin fines de lucro que atiende al sur de California, incluida Santa Ana. Su lema es «Alta calidad sin excepción». Cuando sea miembro, podrá recibir un kit FIT de AltaMed.",
       joinText: "Para ser paciente de AltaMed, llame al:",
       call: "Llame para hacerse miembro",
-      otherTitle: "Otras formas de obtener un kit FIT en el área de Santa Ana",
-      otherIntro: "Estas clínicas comunitarias atienden en Santa Ana. Llame antes y pregunte si ofrecen kits FIT (pruebas de heces) o detección de cáncer colorrectal, ya que la disponibilidad puede cambiar.",
+      otherTitle: "Otras opciones de salud comunitaria en su área",
+      otherIntro: "Estas clínicas comunitarias atienden el área de Santa Ana. Llame antes para preguntar sobre los servicios que ofrecen.",
       clinics: [
         {
           name: "Serve the People Community Health Center",
