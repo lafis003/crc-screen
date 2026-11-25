@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import {
-  ChevronRight, ChevronDown, ArrowLeft, Home, Download, Phone, MapPin, ExternalLink, AlertTriangle, Check,
+  ChevronRight, ChevronDown, ArrowLeft, Home, Phone, MapPin, ExternalLink, AlertTriangle, Check,
 } from 'lucide-react';
 import { content, Content, Language, Page } from './data/content';
 import { DoctorIcon, TestTubeIcon, MailboxDnaIcon, ColonIcon } from './components/Icons';
@@ -244,16 +244,16 @@ function InfoPage({
     <Screen direction={direction}>
       <TopBar t={t} onBack={onBack} onHome={onHome} />
       <ScrollArea>
-        <div className="bg-brand text-white px-6 pt-8 pb-10 rounded-b-3xl">
-          <div className="inline-flex items-center gap-2 bg-white/15 rounded-lg px-3 py-1.5 text-sm font-medium mb-5">
+        <div className="bg-brand text-white px-5 pt-5 pb-6 rounded-b-2xl">
+          <div className="inline-flex items-center gap-2 bg-white/15 rounded-lg px-3 py-1.5 text-sm font-medium mb-3">
             <ColonIcon className="w-5 h-5 text-white" />
             {i.badge}
           </div>
-          <h1 className="text-3xl font-semibold tracking-tight leading-tight mb-3">{i.title}</h1>
-          <p className="text-lg text-white/90 leading-relaxed">{i.subtitle}</p>
+          <h1 className="text-2xl font-semibold tracking-tight leading-tight mb-2">{i.title}</h1>
+          <p className="text-base text-white/90 leading-snug">{i.subtitle}</p>
         </div>
 
-        <div className="p-5 space-y-4 -mt-5">
+        <div className="p-5 pt-6 space-y-4">
           {i.stats.map((s, idx) => (
             <div key={s.big} className={`${STAT_COLORS[idx]} text-white rounded-2xl p-5 shadow-sm`}>
               <div className="text-4xl font-semibold tracking-tight mb-1">{s.big}</div>
@@ -478,39 +478,6 @@ function ScreeningPage({
             <LabeledList label={s.howLabel} items={s.colonoscopy.how} color="text-scope" />
             <LabeledList label={s.considerLabel} items={s.colonoscopy.consider} color="text-scope" />
           </Accordion>
-
-          {!isMember && (
-            <div className="bg-brand text-white rounded-2xl p-5">
-              <div className="flex items-center gap-3 mb-2">
-                <DoctorIcon className="w-9 h-9 text-white" />
-                <h2 className="text-2xl font-semibold">{s.nonMember.signupTitle}</h2>
-              </div>
-              <p className="text-lg text-white/90 leading-relaxed mb-4">{s.nonMember.signupText}</p>
-              <a
-                href={PATIENT_PHONE_URI}
-                onClick={() => track('click_phone')}
-                className="w-full py-4 px-6 bg-white text-brand rounded-xl flex items-center justify-center gap-3 text-xl font-semibold"
-              >
-                <Phone className="w-6 h-6" />
-                {s.nonMember.signupCall}: {PATIENT_PHONE}
-              </a>
-            </div>
-          )}
-
-          <div className="bg-white border border-slate-200 rounded-2xl p-5">
-            <h2 className="text-xl font-semibold text-warm-text mb-1">{s.flyerTitle}</h2>
-            <p className="text-base text-warm-muted mb-4">{s.flyerText}</p>
-            <a
-              href={asset(s.flyerPath)}
-              target="_blank"
-              rel="noopener noreferrer"
-              onClick={() => track('download_flyer')}
-              className="w-full py-3.5 px-6 bg-brand/10 text-brand rounded-xl text-lg font-semibold hover:bg-brand/20 transition-colors flex items-center justify-center gap-3"
-            >
-              <Download className="w-6 h-6" />
-              {s.flyerButton}
-            </a>
-          </div>
 
           <p className="flex gap-3 text-sm text-warm-muted leading-snug px-1">
             <AlertTriangle className="w-5 h-5 shrink-0" />

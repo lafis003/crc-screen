@@ -13,7 +13,6 @@ const ROWS: { key: StatEvent; label: string }[] = [
   { key: 'view_cologuard', label: 'Opened Cologuard info' },
   { key: 'view_colonoscopy', label: 'Opened Colonoscopy info' },
   { key: 'click_phone', label: 'Tapped a phone number' },
-  { key: 'download_flyer', label: 'Downloaded flyer' },
 ];
 
 export function Stats() {

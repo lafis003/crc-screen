@@ -9,8 +9,7 @@ export type StatEvent =
   | 'view_screening'
   | 'view_cologuard'
   | 'view_colonoscopy'
-  | 'click_phone'
-  | 'download_flyer';
+  | 'click_phone';
 
 export function track(event: StatEvent) {
   if (!STATS_URL) return;
